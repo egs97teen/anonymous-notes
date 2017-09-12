@@ -1,0 +1,13 @@
+<form (submit)="newNote(); formData.reset()" #formData="ngForm">
+	<label for="note"><input
+		type="text"
+		name="content"
+		[(ngModel)]="note.content"
+		required
+		minlength="3"
+		#content="ngModel">
+	<p *ngIf="content.touched">
+      <span class="error" *ngIf="content.errors?.minlength">Note must be at least 3 characters long.</span>
+      <span class="error" *ngIf="content.errors?.required">Note is required.</span></p></label>
+	<input type="submit" value="Add Note" [disabled]="!formData.valid">
+</form>

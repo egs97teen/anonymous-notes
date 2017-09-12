@@ -1,0 +1,8 @@
+<div id="wrapper">
+	<h1>{{ title }}</h1>
+	<div *ngIf="errors">
+		<p *ngFor="let error in errors">{{error}}</p>
+	</div>
+	<app-note-add (createNote)="addNewNote($event)"></app-note-add>
+	<app-note-list [all_notes]="noteList"></app-note-list>
+</div>
